@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.baizhi.dao.UserSexDao">
+    <!--查询所有男生人数-->
+<select id="findAllSexAndMonth" resultType="com.baizhi.entity.User" parameterType="string">
+    select
+    concat(month (creat_date),'月')as month,count(*)as count
+    from user
+    where  sex=#{sex} group by month (creat_date)
+</select>
+
+
+</mapper>
+
